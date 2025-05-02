@@ -67,7 +67,13 @@ screen -S aztec
 
 6. ### Start your sequencer:
 - Replace `<SEPOLIA_RPC>` with a public Ethereum Sepolia RPC URL (you can find one by searching online or create your own using Alchemy, Infura, or another RPC provider). Alchemy Provider Visit [HERE](https://dashboard.alchemy.com/)
+
+![image](https://github.com/user-attachments/assets/7ccdc807-8629-4956-815a-faa71a2480fa)
+
 - Replace `<CONSENSUS-HOST-URL>` with the Ethereum Beacon Chain Sepolia endpoint (you can create one using dRPC). **dRPC** Provider Visit [HERE](https://drpc.org/)
+
+![image](https://github.com/user-attachments/assets/38d7f851-9add-41c7-a7fd-3affb3657e3c)
+  
 - Replace `<0xYourPrivateKey>` with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget to prefix it with 0x).
 - Replace `<0xYourAddress>` with the wallet address of the private key above.
 - Replace `<YOUR_IP_ADDRESS>` with your VPS public IP address.To check your IP address use this command `curl ifconfig.me`,`curl -4 ifconfig.me`
