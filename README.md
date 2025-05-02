@@ -54,15 +54,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/mai
 - Replace `<0xYourPrivateKey>` with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget to prefix it with 0x).
 - Replace `<0xYourAddress>` with the wallet address of the private key above.
 - Replace `<YOUR_IP_ADDRESS>` with your VPS public IP address.To check your IP address use this command `curl ifconfig.me`,`curl -4 ifconfig.me`
-```
-aztec start --node --archiver --sequencer \
-  --network alpha-testnet \
-  --l1-rpc-urls <SEPOLIA_RPC> \
-  --l1-consensus-host-urls <CONSENSUS-HOST-URL> \
-  --sequencer.validatorPrivateKey <0xYourPrivateKey> \
-  --sequencer.coinbase <0xYourAddress> \
-  --p2p.p2pIp <YOUR_IP_ADDRESS>
-```
+
 ![image](https://github.com/user-attachments/assets/d5a38957-b090-4b42-a080-8e820dc81080)
 
 ### Wait a few minutes for the sync to complete.
