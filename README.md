@@ -19,6 +19,9 @@ This guide will help you set up an Aztec Sequencer Node on a Virtual Private Ser
 
 ### Note: This tutorial is created for Linux (Ubuntu). The steps may vary slightly for other operating systems.
 
+## Need VPS?
+- Guide on how to buy from Contabo [HERE](https://medium.com/@Airdrop_Jheff/guide-on-how-to-buy-a-vps-server-from-contabo-and-set-it-up-on-termius-0928e0e5cb5d)
+
 1. ### Install Dependencies:
 ```
 sudo apt-get update && sudo apt-get upgrade -y && \
