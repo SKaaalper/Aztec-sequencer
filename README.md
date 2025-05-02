@@ -30,7 +30,7 @@ Faucet:
 - [Alchemy](https://www.alchemy.com/faucets)
 - [Sepolia Mining Faucet](https://sepolia-faucet.pk910.de/)
 
-1. Execute the following commands to run your **Aztec node**:
+1. ### Execute the following commands to run your **Aztec node**:
   - Using `Curl`:
 ```
 bash <(curl -s https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
