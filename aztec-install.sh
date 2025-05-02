@@ -22,7 +22,7 @@ cat << "EOF"
  ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░ ░░░░░       ░░░░░       
 EOF
 
-echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Node Installation${RESET}"
+echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Pro Installer${RESET}"
 echo -e "📣 TG Group: ${MAGENTA}https://t.me/KatayanAirdropGnC${RESET}"
 sleep 2
 
@@ -64,30 +64,29 @@ IP_ADDR=$(curl -s ifconfig.me)
 echo "🌐 Detected IP address: $IP_ADDR"
 
 # Create start_aztec_node.sh script
-cat << 'EOF' > $HOME/start_aztec_node.sh
+cat << EOF > $HOME/start_aztec_node.sh
 #!/bin/bash
-
-export SEPOLIA_RPC=$1
-export CONSENSUS_HOST=$2
-export PRIVATE_KEY=$3
-export WALLET_ADDRESS=$4
-export IP_ADDR=$5
+export SEPOLIA_RPC=$SEPOLIA_RPC
+export CONSENSUS_HOST=$CONSENSUS_HOST
+export PRIVATE_KEY=$PRIVATE_KEY
+export WALLET_ADDRESS=$WALLET_ADDRESS
+export IP_ADDR=$IP_ADDR
 
 aztec start --node --archiver --sequencer \
   --network alpha-testnet \
-  --l1-rpc-urls $SEPOLIA_RPC \
-  --l1-consensus-host-urls $CONSENSUS_HOST \
-  --sequencer.validatorPrivateKey $PRIVATE_KEY \
-  --sequencer.coinbase $WALLET_ADDRESS \
-  --p2p.p2pIp $IP_ADDR
+  --l1-rpc-urls \$SEPOLIA_RPC \
+  --l1-consensus-host-urls \$CONSENSUS_HOST \
+  --sequencer.validatorPrivateKey \$PRIVATE_KEY \
+  --sequencer.coinbase \$WALLET_ADDRESS \
+  --p2p.p2pIp \$IP_ADDR
 EOF
 
-# Make the script executable
 chmod +x $HOME/start_aztec_node.sh
 
-# Start the Aztec node in a screen session
-screen -dmS aztec $HOME/start_aztec_node.sh "$SEPOLIA_RPC" "$CONSENSUS_HOST" "$PRIVATE_KEY" "$WALLET_ADDRESS" "$IP_ADDR" || fail_exit "Aztec sequencer launch"
+# Start the sequencer node in a screen session
+screen -dmS aztec $HOME/start_aztec_node.sh
 
-print_step "🎉 ${GREEN}${BOLD}Aztec node started successfully in a screen session.${RESET}"
-echo "🖥️  To check the sequencer, run: screen -r aztec
-echo "🔌 To detach from screen, press: CTRL+A then Press D
+# Confirmation message
+print_step "🎉 ${YELLOW}Setup Complete!${RESET}"
+echo "🖥️  To check the sequencer, run: ${CYAN}screen -r aztec${RESET}"
+echo "🔌 To detach from screen, press ${CYAN}CTRL+A then D${RESET}"
