@@ -23,7 +23,7 @@ Faucet:
 - [Alchemy](https://www.alchemy.com/faucets)
 - [Sepolia Mining Faucet](https://sepolia-faucet.pk910.de/)
 
-1. ### Use either `curl` or `wget` to execute the following commands and run your **Aztec node**:
+1. **Use either `curl` or `wget` to execute the following commands and run your Aztec node**:
   - Using `Curl`:
 ```
 bash <(curl -s https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
@@ -54,7 +54,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/mai
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
 
-2. ### Get Your Block Number:
+2. **Get Your Block Number**:
 - Once you're outside the session, run the following command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`:
 ```
 curl -s -X POST -H 'Content-Type: application/json' \
@@ -66,7 +66,7 @@ http://<YOUR_IP_ADDRESS>:8080 | jq -r ".result.proven.number"
   ![image](https://github.com/user-attachments/assets/1238a0bc-6a9b-4112-ba2a-2e0d104fbc67)
 
   
-3. ### Get Your Proof:
+3. **Get Your Proof**:
 - Run this command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`, and `<BLOCK_NUMBER>` with the block number you just got:
 ```
 curl -s -X POST -H 'Content-Type: application/json' \
@@ -78,14 +78,14 @@ http://<YOUR_IP_ADDRESS>:8080 | jq -r ".result"
 ![image](https://github.com/user-attachments/assets/28570cc8-4774-4e0e-a9b9-79d82d6eccde)
 
 
-4. ### Get the Role:
+4. **Get the Role**:
 - Join the **Aztec Discord** server, Join [HERE](https://discord.gg/aztec)
 - Run the command `/operator start` in the **#operator channel**.
 - Fill in your **wallet address**, **block number**, and **proof**.
 
 ![image](https://github.com/user-attachments/assets/344ab8f8-cdb1-419a-98d0-50113fd1dc7a)
 
-5. ### Register Validator:
+5. **Register Validator**:
 ```
 aztec add-l1-validator \
   --l1-rpc-urls <RPC URL> \
