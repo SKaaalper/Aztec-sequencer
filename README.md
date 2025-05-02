@@ -11,12 +11,6 @@ This guide will help you set up an Aztec Sequencer Node on a Virtual Private Ser
 | **RAM**        | -            | 16 GB          |
 | **SSD**        | -            | 1 TB           |
 
-| **Operating System** | **Support** |
-|----------------------|-------------|
-| **Linux**            | ✅ Supported |
-| **macOS**            | ✅ Supported |
-| **Windows (WSL)**    | ✅ Supported |
-
 
 ## Need VPS?
 -  **Guide on how to buy from Contabo** [HERE](https://medium.com/@Airdrop_Jheff/guide-on-how-to-buy-a-vps-server-from-contabo-and-set-it-up-on-termius-0928e0e5cb5d)
