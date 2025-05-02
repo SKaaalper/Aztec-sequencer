@@ -70,6 +70,8 @@ screen -S aztec
 
 ![image](https://github.com/user-attachments/assets/7ccdc807-8629-4956-815a-faa71a2480fa)
 
+![image](https://github.com/user-attachments/assets/b28114ae-d7ac-4a3c-b92d-1758290097d8)
+
 - Replace `<CONSENSUS-HOST-URL>` with the Ethereum Beacon Chain Sepolia endpoint (you can create one using dRPC). **dRPC** Provider Visit [HERE](https://drpc.org/)
 
 ![image](https://github.com/user-attachments/assets/38d7f851-9add-41c7-a7fd-3affb3657e3c)
