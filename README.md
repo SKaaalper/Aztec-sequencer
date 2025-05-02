@@ -49,9 +49,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/mai
 
 ![image](https://github.com/user-attachments/assets/d5a38957-b090-4b42-a080-8e820dc81080)
 
-**Wait a few minutes for the sync to complete**.
-
-
+- Wait a few minutes for the sync to complete.
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
   
@@ -80,7 +78,7 @@ http://<YOUR_IP_ADDRESS>:8080 | jq -r ".result"
 ![image](https://github.com/user-attachments/assets/28570cc8-4774-4e0e-a9b9-79d82d6eccde)
 
 
-4. **Get the Role**:
+4. **Get your Role**:
 - Join the **Aztec Discord** server, Join [HERE](https://discord.gg/aztec)
 - Run the command `/operator start` in the **#operator channel**.
 - Fill in your **wallet address**, **block number**, and **proof**.
