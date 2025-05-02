@@ -72,21 +72,23 @@ export PRIVATE_KEY=$PRIVATE_KEY
 export WALLET_ADDRESS=$WALLET_ADDRESS
 export IP_ADDR=$IP_ADDR
 
+# Start Aztec node and keep screen session alive by tailing logs
 aztec start --node --archiver --sequencer \
   --network alpha-testnet \
   --l1-rpc-urls \$SEPOLIA_RPC \
   --l1-consensus-host-urls \$CONSENSUS_HOST \
   --sequencer.validatorPrivateKey \$PRIVATE_KEY \
   --sequencer.coinbase \$WALLET_ADDRESS \
-  --p2p.p2pIp \$IP_ADDR
+  --p2p.p2pIp \$IP_ADDR | tee -a \$HOME/aztec_log.txt
 EOF
 
 chmod +x $HOME/start_aztec_node.sh
 
-# Start the sequencer node in a screen session
+# Start the sequencer node in a screen session and tail logs to keep the session active
 screen -dmS aztec $HOME/start_aztec_node.sh
 
 # Confirmation message
 print_step "🎉 ${YELLOW}Setup Complete!${RESET}"
-echo "🖥️  To check the sequencer, run: ${CYAN}screen -r aztec${RESET}"
-echo "🔌 To detach from screen, press ${CYAN}CTRL+A then D${RESET}"
+echo "🖥️  To check the sequencer, run: screen -r aztec"
+echo "🔌 To detach from screen, press CTRL+A then D"
+echo "📝 Log file: $HOME/aztec_log.txt"
