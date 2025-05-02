@@ -1,4 +1,4 @@
-## Aztec Sequencer Node Setup Guide
+## Aztec Sequencer 1 Click Node Setup Guide
 
 ![image](https://github.com/user-attachments/assets/a6ceaf27-df35-48bb-82be-f01e43e784e5)
 
@@ -23,36 +23,6 @@ This guide will help you set up an Aztec Sequencer Node on a Virtual Private Ser
 - Guide on how to buy from Contabo [HERE](https://medium.com/@Airdrop_Jheff/guide-on-how-to-buy-a-vps-server-from-contabo-and-set-it-up-on-termius-0928e0e5cb5d)
 
 
-1. ### Install Dependencies:
-```
-sudo apt-get update && sudo apt-get upgrade -y && \
-sudo apt install -y curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip
-```
-
-2. ### Install Aztec Tools:
-```
-bash -i <(curl -s https://install.aztec.network)
-```
-
-3. ### Add to `Path`:
-```
-echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
-```
-
-4. ### Update Aztec Toolchain:
-```
-aztec-up alpha-testnet
-```
-- Verify aztec:
-```
-aztec --version
-```
-- Open Port:
-```
-ufw allow 40400
-ufw allow 8080
-```
 ### Before running a sequencer, make sure you have Sepolia test tokens:
 
 Faucet:
@@ -60,12 +30,18 @@ Faucet:
 - [Alchemy](https://www.alchemy.com/faucets)
 - [Sepolia Mining Faucet](https://sepolia-faucet.pk910.de/)
 
-5. ### Create `screen` session to run in the background:
+1. Execute the following commands to run your **Aztec node**:
+  - Using `Curl`:
 ```
-screen -S aztec
+bash <(curl -s https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
 ```
 
-6. ### Start your sequencer:
+  - Using `Wget`:
+```
+bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
+```
+
+2. ### Start your sequencer:
 - Replace `<SEPOLIA_RPC>` with a public Ethereum Sepolia RPC URL (you can find one by searching online or create your own using Alchemy, Infura, or another RPC provider). Alchemy Provider Visit [HERE](https://dashboard.alchemy.com/)
 
 ![image](https://github.com/user-attachments/assets/7ccdc807-8629-4956-815a-faa71a2480fa)
@@ -95,7 +71,7 @@ aztec start --node --archiver --sequencer \
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Reattach to screen: `screen -r aztec`
 
-7. ### Get Your Block Number:
+3. ### Get Your Block Number:
 - Once you're outside the session, run the following command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`:
 ```
 curl -s -X POST -H 'Content-Type: application/json' \
@@ -107,7 +83,7 @@ http://<YOUR_IP_ADDRESS>:8080 | jq -r ".result.proven.number"
   ![image](https://github.com/user-attachments/assets/1238a0bc-6a9b-4112-ba2a-2e0d104fbc67)
 
   
-8. ### Get Your Proof:
+4. ### Get Your Proof:
 - Run this command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`, and `<BLOCK_NUMBER>` with the block number you just got:
 ```
 curl -s -X POST -H 'Content-Type: application/json' \
@@ -119,14 +95,14 @@ http://<YOUR_IP_ADDRESS>:8080 | jq -r ".result"
 ![image](https://github.com/user-attachments/assets/28570cc8-4774-4e0e-a9b9-79d82d6eccde)
 
 
-8. ### Get the Role:
+5. ### Get the Role:
 - Join the **Aztec Discord** server, Join [HERE](https://discord.gg/aztec)
 - Run the command `/operator start` in the **#operator channel**.
 - Fill in your **wallet address**, **block number**, and **proof**.
 
 ![image](https://github.com/user-attachments/assets/344ab8f8-cdb1-419a-98d0-50113fd1dc7a)
 
-9. ### Register Validator:
+6. ### Register Validator:
 ```
 aztec add-l1-validator \
   --l1-rpc-urls <RPC URL> \
