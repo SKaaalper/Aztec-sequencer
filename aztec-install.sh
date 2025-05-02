@@ -22,7 +22,7 @@ cat << "EOF"
  ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░ ░░░░░       ░░░░░       
 EOF
 
-echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Pro Installer${RESET}"
+echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Node Installation${RESET}"
 echo -e "📣 TG Group: ${MAGENTA}https://t.me/KatayanAirdropGnC${RESET}"
 sleep 2
 
