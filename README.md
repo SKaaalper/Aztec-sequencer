@@ -81,6 +81,7 @@ aztec start --node --archiver --sequencer \
 ### Wait a few minutes for the sync to complete.
 
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
+- Reattach to screen: `screen -r aztec`
 
 7. ## Get Your Block Number:
 - Once you're outside the session, run the following command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`:
@@ -126,6 +127,9 @@ aztec add-l1-validator \
 - Replace `<RPC URL>` , `<your-private-key>` , `<your-validator-address>` (**attester** and **proposer-eoa** is the same address).
 
 **If you encounter this error, it means the validator quota for today is full. You will need to register again by tomorrow**.
+
+![image](https://github.com/user-attachments/assets/b27a887e-bb8e-4d19-8716-352bac2be194)
+
  
     ![image](https://github.com/user-attachments/assets/e66996a7-2075-49c0-8b9b-5a63748a69d5)
 
