@@ -22,7 +22,7 @@ cat << "EOF"
  ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░ ░░░░░       ░░░░░       
 EOF
 
-echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Node Installation${RESET}"
+echo -e "${YELLOW}${BOLD}🚀 Aztec Sequencer Pro Installer${RESET}"
 echo -e "📣 TG Group: ${MAGENTA}https://t.me/KatayanAirdropGnC${RESET}"
 sleep 2
 
@@ -81,13 +81,16 @@ aztec start --node --archiver --sequencer \
   --sequencer.coinbase \$WALLET_ADDRESS \
   --p2p.p2pIp \$IP_ADDR | tee -a \$HOME/aztec_log.txt
 
-# Keep the screen session alive
-tail -f /dev/null
+# Keep screen alive by tailing the log file (option 1)
+tail -f \$HOME/aztec_log.txt
+
+# Or keep it alive by adding an infinite sleep loop (option 2)
+# sleep infinity
 EOF
 
 chmod +x $HOME/start_aztec_node.sh
 
-# Start the sequencer node in a screen session and keep it running with tail -f
+# Start the sequencer node in a screen session and tail logs to keep the session active
 screen -dmS aztec $HOME/start_aztec_node.sh
 
 # Confirmation message
