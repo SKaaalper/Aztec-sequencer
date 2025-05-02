@@ -130,8 +130,4 @@ aztec add-l1-validator \
 
 ![image](https://github.com/user-attachments/assets/b27a887e-bb8e-4d19-8716-352bac2be194)
 
- 
-    ![image](https://github.com/user-attachments/assets/e66996a7-2075-49c0-8b9b-5a63748a69d5)
-
-
 - If you need help, reach out through: [Telegram](https://t.me/KatayanAirdropGnC)
