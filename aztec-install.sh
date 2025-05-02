@@ -1,6 +1,14 @@
 #!/bin/bash
 
-# ----------------- Banner -----------------
+ORANGE='\033[38;5;208m'
+TEAL='\033[38;5;37m'
+PINK='\033[38;5;213m'
+LIME='\033[38;5;118m'
+SKY='\033[38;5;123m'
+GOLD='\033[38;5;220m'
+BOLD='\033[1m'
+RESET='\033[0m'
+
 clear
 cat << "EOF"
        █████ █████   █████ ██████████ ███████████ ███████████
@@ -11,62 +19,42 @@ cat << "EOF"
  ███   ░███  ░███    ░███  ░███ ░   █ ░███  ░     ░███  ░    
 ░░████████   █████   █████ ██████████ █████       █████      
  ░░░░░░░░   ░░░░░   ░░░░░ ░░░░░░░░░░ ░░░░░       ░░░░░       
-                                                              
-                                                              
 EOF
 
-echo -e "\033[0;36m"
-echo "             🚀 Aztec Sequencer Installer"
-echo -e "\033[0m"
-echo -e "📣 TG Group: \033[1;34mhttps://t.me/KatayanAirdropGnC\033[0m"
+echo -e "${GOLD}${BOLD}🚀 Aztec Sequencer Pro Installer${RESET}"
+echo -e "📣 TG Group: ${PINK}https://t.me/KatayanAirdropGnC${RESET}"
 sleep 2
 
-# Function to print section headers
-print_header() {
-  echo -e "\n\033[1;36m==> $1\033[0m"
+print_step() {
+  echo -e "\n${SKY}$1${RESET}"
 }
 
-# Function to check command success
-check_success() {
-  if [ $? -ne 0 ]; then
-    echo -e "\033[1;31m❌ $1 failed. Exiting.\033[0m"
-    exit 1
-  fi
+fail_exit() {
+  echo -e "${ORANGE}❌ $1 failed. Exiting.${RESET}"
+  exit 1
 }
 
-# 1. Update and install dependencies
-print_header "🔧 Updating system and installing dependencies..."
-sudo apt-get update && sudo apt-get upgrade -y
-check_success "System update"
+print_step "🔧 Updating system and installing dependencies..."
+sudo apt-get update && sudo apt-get upgrade -y || fail_exit "System update"
+sudo apt install -y curl wget iptables build-essential git lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip || fail_exit "Dependency installation"
 
-sudo apt install -y curl wget iptables build-essential git lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip
-check_success "Dependency installation"
+print_step "${TEAL}📦 Installing Aztec CLI tools...${RESET}"
+bash -i <(curl -s https://install.aztec.network) || fail_exit "Aztec install"
 
-# 2. Install Aztec tools
-print_header "📦 Installing Aztec CLI tools..."
-bash -i <(curl -s https://install.aztec.network)
-check_success "Aztec install"
-
-# 3. Add Aztec CLI to PATH
 echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
-# 4. Update to alpha-testnet
-print_header "🔄 Updating Aztec to alpha-testnet..."
-aztec-up alpha-testnet
-check_success "Aztec update"
+print_step "${LIME}🔄 Updating Aztec to alpha-testnet...${RESET}"
+aztec-up alpha-testnet || fail_exit "Aztec update"
 
-# 5. Verify installation
-print_header "✅ Verifying Aztec installation..."
-aztec --version
+print_step "${PINK}✅ Verifying Aztec installation...${RESET}"
+aztec --version || fail_exit "Aztec verification"
 
-# 6. Open necessary ports
-print_header "🔓 Allowing firewall ports 40400 and 8080..."
-sudo ufw allow 40400
-sudo ufw allow 8080
+print_step "${GOLD}🔓 Allowing firewall ports 40400 and 8080...${RESET}"
+sudo ufw allow 40400 || fail_exit "UFW port 40400"
+sudo ufw allow 8080 || fail_exit "UFW port 8080"
 
-# 7. Prompt for user input
-print_header "📝 Enter required details for sequencer setup:"
+print_step "${SKY}📝 Collecting required details for sequencer setup:${RESET}"
 read -p "🛰️  Sepolia RPC URL: " SEPOLIA_RPC
 read -p "🔗 Consensus Host URL (Beacon Chain): " CONSENSUS_HOST
 read -p "🔑 Your Private Key (start with 0x): " PRIVATE_KEY
@@ -74,21 +62,21 @@ read -p "🏦 Your Wallet Address (start with 0x): " WALLET_ADDRESS
 IP_ADDR=$(curl -s ifconfig.me)
 echo "🌐 Detected IP address: $IP_ADDR"
 
-# 8. Start in screen session
-print_header "🚀 Launching Aztec Sequencer inside a screen session..."
-
-screen -dmS aztec bash -c "
+print_step "${TEAL}🚀 Launching Aztec Sequencer in screen session...${RESET}"
+screen -dmS aztec bash -ic "\
+export SEPOLIA_RPC=$SEPOLIA_RPC; \
+export CONSENSUS_HOST=$CONSENSUS_HOST; \
+export PRIVATE_KEY=$PRIVATE_KEY; \
+export WALLET_ADDRESS=$WALLET_ADDRESS; \
+export IP_ADDR=$IP_ADDR; \
 aztec start --node --archiver --sequencer \
   --network alpha-testnet \
-  --l1-rpc-urls $SEPOLIA_RPC \
-  --l1-consensus-host-urls $CONSENSUS_HOST \
-  --sequencer.validatorPrivateKey $PRIVATE_KEY \
-  --sequencer.coinbase $WALLET_ADDRESS \
-  --p2p.p2pIp $IP_ADDR"
+  --l1-rpc-urls \$SEPOLIA_RPC \
+  --l1-consensus-host-urls \$CONSENSUS_HOST \
+  --sequencer.validatorPrivateKey \$PRIVATE_KEY \
+  --sequencer.coinbase \$WALLET_ADDRESS \
+  --p2p.p2pIp \$IP_ADDR" || fail_exit "Aztec sequencer launch"
 
-check_success "Aztec sequencer launch"
-
-# 9. Final message
-print_header "🎉 Setup Complete!"
-echo "🖥️  To check the sequencer: run screen -r aztec
-echo "🔌 To detach from screen, press CTRL+A then D
+print_step "🎉 ${LIME}Setup Complete!${RESET}"
+echo "🖥️  To check the sequencer, run: ${SKY}screen -r aztec${RESET}"
+echo "🔌 To detach from screen, press ${SKY}CTRL+A then D${RESET}"
