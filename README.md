@@ -49,10 +49,12 @@ bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/mai
 
 ![image](https://github.com/user-attachments/assets/d5a38957-b090-4b42-a080-8e820dc81080)
 
-### Wait a few minutes for the sync to complete.
+**Wait a few minutes for the sync to complete**.
+
 
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
+  
 
 2. **Get Your Block Number**:
 - Once you're outside the session, run the following command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`:
