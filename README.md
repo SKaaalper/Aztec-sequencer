@@ -114,6 +114,10 @@ screen -r aztec
 ```
 aztec-up alpha-testnet
 ```
+- **If you're using docker compose, the new image is**:
+```
+aztecprotocol/aztec:alpha-testnet
+```
 
 - **Now, Start your NODE**:
 ```
