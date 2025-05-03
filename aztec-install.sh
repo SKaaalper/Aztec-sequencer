@@ -56,9 +56,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 sudo systemctl enable docker
 sudo systemctl restart docker
 
-print_step "🐳 Testing Docker..."
-sudo docker run hello-world || fail_exit "Docker test run"
-
 print_step "${PURPLE}📦 Installing Aztec CLI tools...${RESET}"
 bash -i <(curl -s https://install.aztec.network) || fail_exit "Aztec install"
 
@@ -67,6 +64,9 @@ source ~/.bashrc
 
 print_step "${CYAN}🔄 Updating Aztec to alpha-testnet...${RESET}"
 aztec-up alpha-testnet || fail_exit "Aztec update"
+
+print_step "📦 Pulling Aztec Docker image..."
+sudo docker pull aztecprotocol/aztec:alpha-testnet || fail_exit "Docker image pull"
 
 print_step "${GREEN}✅ Verifying Aztec installation...${RESET}"
 aztec --version || fail_exit "Aztec verification"
