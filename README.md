@@ -101,4 +101,35 @@ aztec add-l1-validator \
 
 ![image](https://github.com/user-attachments/assets/b27a887e-bb8e-4d19-8716-352bac2be194)
 
+
+## (For existing users only): Update your sequencer node:
+
+- **go to screen**:
+```
+screen -r aztec
+```
+- Press **Ctrl + C**  to stop node
+  
+- **Update your node, Using `screen`**:
+```
+aztec-up alpha-testnet
+```
+
+- **Now, Start your NODE**:
+```
+aztec start --node --archiver --sequencer \
+  --network alpha-testnet \
+  --l1-rpc-urls <YOUR_RPC_URL> \
+  --l1-consensus-host-urls <YOUR_BEACON_URL> \
+  --sequencer.validatorPrivateKey <YOUR_PRIVATEKEY> \
+  --sequencer.coinbase <YOUR_WALLET_ADDRESS> \
+  --p2p.p2pIp <YOUR_VPS_IP_ADDRESS> \
+  --p2p.maxTxPoolSize 1000000000
+```
+- To **Detach**: **Press Ctrl + A, Then Click D**
+- Check Logs: `screen -r aztec`
+
+![image](https://github.com/user-attachments/assets/a0e1af8b-3977-4966-8b1f-ecfb0402e174)
+
+
 - If you need help, reach out through: [Telegram](https://t.me/KatayanAirdropGnC)
