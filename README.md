@@ -33,19 +33,18 @@ bash <(curl -s https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/
 ```
 bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
 ```
-- Replace `<SEPOLIA_RPC>` with a public Ethereum Sepolia RPC URL (you can find one by searching online or create your own using Alchemy, Infura, or another RPC provider). Alchemy Provider Visit [HERE](https://dashboard.alchemy.com/)
+- `<SEPOLIA_RPC>`: Alchemy Provider Visit [HERE](https://dashboard.alchemy.com/)
 
 ![image](https://github.com/user-attachments/assets/7ccdc807-8629-4956-815a-faa71a2480fa)
 
 ![image](https://github.com/user-attachments/assets/b28114ae-d7ac-4a3c-b92d-1758290097d8)
 
-- Replace `<CONSENSUS-HOST-URL>` with the Ethereum Beacon Chain Sepolia endpoint (you can create one using dRPC). **dRPC** Provider Visit [HERE](https://drpc.org/)
+- `<CONSENSUS-HOST-URL>`: **dRPC** Provider Visit [HERE](https://drpc.org/)
 
 ![image](https://github.com/user-attachments/assets/38d7f851-9add-41c7-a7fd-3affb3657e3c)
   
-- Replace `<0xYourPrivateKey>` with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget to prefix it with 0x).
-- Replace `<0xYourAddress>` with the wallet address of the private key above.
-- Replace `<YOUR_IP_ADDRESS>` with your VPS public IP address.To check your IP address use this command `curl ifconfig.me`,`curl -4 ifconfig.me`
+- `<0xYourPrivateKey>`: with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget to prefix it with 0x).
+- `<0xYourAddress>`: with the wallet address of the private key above.
 
 ![image](https://github.com/user-attachments/assets/d5a38957-b090-4b42-a080-8e820dc81080)
 
@@ -53,6 +52,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/mai
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
   
+**To check your IP address use this command `curl ifconfig.me`,`curl -4 ifconfig.me`**
 
 2. **Get Your Block Number**:
 - Once you're outside the session, run the following command. Replace `<YOUR_IP_ADDRESS>` with your `VPS IP`:
