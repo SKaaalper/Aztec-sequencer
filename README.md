@@ -118,8 +118,15 @@ aztec-up alpha-testnet
 ```
 aztecprotocol/aztec:alpha-testnet
 ```
+- **Check logs**:
+```
+docker ps
+```
+```
+docker logs -f <container_id>
+```
 
-- **Now, Start your NODE**:
+- **Now, Start your NODE for `screen`**:
 ```
 aztec start --node --archiver --sequencer \
   --network alpha-testnet \
