@@ -110,4 +110,3 @@ print_step "🎉 ${YELLOW}Setup Complete!${RESET}"
 echo "🖥️  To check the sequencer logs, run: screen -r aztec"
 echo "🔌 To detach from screen, press CTRL+A then D"
 echo "📝 Log file: $HOME/aztec_log.txt"
-echo "TG Group: https://t.me/KatayanAirdropGnC
