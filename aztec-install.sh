@@ -60,7 +60,7 @@ print_step "${PURPLE}📦 Installing Aztec CLI tools...${RESET}"
 bash -i <(curl -s https://install.aztec.network) || fail_exit "Aztec install"
 
 echo 'export PATH="$HOME/.aztec/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+export PATH="$HOME/.aztec/bin:$PATH"
 
 print_step "${CYAN}🔄 Updating Aztec to alpha-testnet...${RESET}"
 aztec-up alpha-testnet || fail_exit "Aztec update"
