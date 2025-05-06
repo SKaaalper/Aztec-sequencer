@@ -109,6 +109,12 @@ aztec add-l1-validator \
 screen -XS aztec quit
 ```
 
+- **Delete **aztec** docker:
+```
+docker ps -q --filter "ancestor=aztecprotocol/aztec" | xargs -r docker stop
+docker ps -a -q --filter "ancestor=aztecprotocol/aztec" | xargs -r docker rm
+```
+
 - **Stop your validator and delete your database**:
 ```
 rm -rf ~/.aztec/alpha-testnet/data/
