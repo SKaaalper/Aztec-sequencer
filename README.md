@@ -108,6 +108,11 @@ aztec add-l1-validator \
 ```
 screen -XS aztec quit
 ```
+
+- **Create new `screen`:
+```
+screen -r aztec
+```
   
 - **Update your node, Using `screen`**:
 ```
