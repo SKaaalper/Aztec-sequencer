@@ -104,26 +104,14 @@ aztec add-l1-validator \
 
 ## (For existing users only): Update your sequencer node:
 
-- **go to screen**:
+- **Delete Screen**:
 ```
-screen -r aztec
+screen -XS aztec quit
 ```
-- Press **Ctrl + C**  to stop node
   
 - **Update your node, Using `screen`**:
 ```
 aztec-up alpha-testnet
-```
-- **If you're using docker compose, the new image is**:
-```
-aztecprotocol/aztec:alpha-testnet
-```
-- **Check logs**:
-```
-docker ps
-```
-```
-docker logs -f <container_id>
 ```
 
 - **Now, Start your NODE for `screen`**:
@@ -137,6 +125,7 @@ aztec start --node --archiver --sequencer \
   --p2p.p2pIp <YOUR_VPS_IP_ADDRESS> \
   --p2p.maxTxPoolSize 1000000000
 ```
+
 - To **Detach**: **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
 
