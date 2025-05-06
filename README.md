@@ -109,6 +109,11 @@ aztec add-l1-validator \
 screen -XS aztec quit
 ```
 
+- **Stop your validator and delete your database**:
+```
+rm -rf ~/.aztec/alpha-testnet/data/
+```
+
 - **Create new `screen`:
 ```
 screen -r aztec
