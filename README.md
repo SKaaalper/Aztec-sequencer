@@ -120,7 +120,7 @@ docker ps -a -q --filter "ancestor=aztecprotocol/aztec" | xargs -r docker rm
 rm -rf ~/.aztec/alpha-testnet/data/
 ```
 
-- **Create new `screen`:
+- **Create new `screen`**:
 ```
 screen -r aztec
 ```
