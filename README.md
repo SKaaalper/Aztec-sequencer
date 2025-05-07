@@ -122,7 +122,7 @@ rm -rf ~/.aztec/alpha-testnet/data/
 
 - **Create new `screen`**:
 ```
-screen -r aztec
+screen -S aztec
 ```
   
 - **Update your node, Using `screen`**:
@@ -140,6 +140,11 @@ aztec start --node --archiver --sequencer \
   --sequencer.coinbase <YOUR_WALLET_ADDRESS> \
   --p2p.p2pIp <YOUR_VPS_IP_ADDRESS> \
   --p2p.maxTxPoolSize 1000000000
+```
+
+- **check`Logs`**:
+```
+sudo docker logs -f --tail 100 $(docker ps -q --filter ancestor=aztecprotocol/aztec:latest | head -n 1)
 ```
 
 - To **Detach**: **Press Ctrl + A, Then Click D**
