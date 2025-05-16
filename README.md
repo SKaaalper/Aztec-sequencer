@@ -33,22 +33,27 @@ bash <(curl -s https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/
 ```
 bash <(wget -qO- https://raw.githubusercontent.com/SKaaalper/Aztec-sequencer/main/aztec-install.sh)
 ```
-- `<SEPOLIA_RPC>`: Alchemy Provider Visit [HERE](https://dashboard.alchemy.com/)
+- `<SEPOLIA_RPC>`: Get your Sepolia RPC, Visit [HERE](https://chainlist.org/chain/11155111)
+or you can choose 1 here:
+  -  `https://sepolia.gateway.tenderly.co`
+  -  `https://1rpc.io/sepolia`
+  -  `https://ethereum-sepolia-rpc.publicnode.com`
+  -  `https://eth-sepolia.public.blastapi.io`
 
-![image](https://github.com/user-attachments/assets/7ccdc807-8629-4956-815a-faa71a2480fa)
+- `<CONSENSUS-HOST-URL>`: You need to use a premium RPC so the blob remains stable, Visit **ANKR** [HERE](https://www.ankr.com/rpc/?utm_referral=9du8k7t88W)
+- Use my referral code to get 20% more free requests for $10 deposit, equivalent to 20 million API credits. `https://www.ankr.com/rpc/?utm_referral=9du8k7t88W`
+- My deposit is $10, but you can deposit $5 using crypto deposit Arb chain (USDC).
+- You can bridge here: https://relay.link/bridge
+- Don’t worry — the request limit on that one doesn’t run out quickly, unlike Sepolia RPC, which gets consumed fast. If you're only using Beacon RPC, the usage is very low. Based on estimates, even a $10 deposit could last for around a year.
 
-![image](https://github.com/user-attachments/assets/b28114ae-d7ac-4a3c-b92d-1758290097d8)
-
-- `<CONSENSUS-HOST-URL>`: **dRPC** Provider Visit [HERE](https://drpc.org/)
-
-![image](https://github.com/user-attachments/assets/38d7f851-9add-41c7-a7fd-3affb3657e3c)
+![image](https://github.com/user-attachments/assets/9602ae8a-d321-4881-b7ad-e81ec05e40b6)
   
-- `<0xYourPrivateKey>`: with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget to prefix it with 0x).
+- `<0xYourPrivateKey>`: with your wallet's private key that has SepoliaETH (use a new wallet and don’t forget, Start it with `0x`).
 - `<0xYourAddress>`: with the wallet address of the private key above.
 
 ![image](https://github.com/user-attachments/assets/d5a38957-b090-4b42-a080-8e820dc81080)
 
-- Wait a few minutes for the sync to complete.
+- Wait a 20 to 30 minutes for the sync to complete.
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
 - Check Logs: `screen -r aztec`
   
