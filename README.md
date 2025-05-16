@@ -153,13 +153,14 @@ aztec start --node --archiver --sequencer \
   --p2p.maxTxPoolSize 1000000000
 ```
 
-- **check`Logs`**:
+- To **Detach**: **Press Ctrl + A, Then Click D**
+
+- **docker `Logs`**:
 ```
 sudo docker logs -f --tail 100 $(docker ps -q --filter ancestor=aztecprotocol/aztec:latest | head -n 1)
 ```
 
-- To **Detach**: **Press Ctrl + A, Then Click D**
-- Check Logs: `screen -r aztec`
+- **screen Logs**: `screen -r aztec`
 
 ![image](https://github.com/user-attachments/assets/a0e1af8b-3977-4966-8b1f-ecfb0402e174)
 
