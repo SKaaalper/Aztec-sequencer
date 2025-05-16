@@ -55,8 +55,8 @@ or you can choose 1 here:
 
 - Wait a 20 to 30 minutes for the sync to complete.
 - First, you need to detach from the screen before proceeding to the next step, **Press Ctrl + A, Then Click D**
-- Check Logs: `screen -r aztec`
-- Docker Logs:
+- **screen Logs**: `screen -r aztec`
+- **Docker Logs**:
 ```
 sudo docker logs -f --tail 100 $(docker ps -q --filter ancestor=aztecprotocol/aztec:latest | head -n 1)
 ```
