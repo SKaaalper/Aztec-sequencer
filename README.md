@@ -166,3 +166,7 @@ sudo docker logs -f --tail 100 $(docker ps -q --filter ancestor=aztecprotocol/az
 
 
 - If you need help, reach out through: [Telegram](https://t.me/KatayanAirdropGnC)
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=SKaaalper&color=yellow" alt="Profile Views" />
+</p>
