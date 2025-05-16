@@ -41,10 +41,10 @@ or you can choose 1 here:
   -  `https://eth-sepolia.public.blastapi.io`
 
 - `<CONSENSUS-HOST-URL>`: You need to use a premium RPC so the blob remains stable, Visit **ANKR** [HERE](https://www.ankr.com/rpc/?utm_referral=9du8k7t88W)
-- Use my referral code to get 20% more free requests for $10 deposit, equivalent to 20 million API credits. `https://www.ankr.com/rpc/?utm_referral=9du8k7t88W`
-- My deposit is $10, but you can deposit $5 using crypto deposit Arb chain (USDC).
-- You can bridge here: https://relay.link/bridge
-- Don’t worry — the request limit on that one doesn’t run out quickly, unlike Sepolia RPC, which gets consumed fast. If you're only using Beacon RPC, the usage is very low. Based on estimates, even a $10 deposit could last for around a year.
+  - Use my referral code to get 20% more free requests for $10 deposit, equivalent to 20 million API credits. `https://www.ankr.com/rpc/?utm_referral=9du8k7t88W`
+  - My deposit is $10, but you can deposit $5 using crypto deposit Arb chain (USDC).
+  - You can bridge here: https://relay.link/bridge
+  - Don’t worry — the request limit on that one doesn’t run out quickly, unlike Sepolia RPC, which gets consumed fast. If you're only using Beacon RPC, the usage is very low. Based on estimates, even a $10 deposit could last for around a year.
 
 ![image](https://github.com/user-attachments/assets/9602ae8a-d321-4881-b7ad-e81ec05e40b6)
   
